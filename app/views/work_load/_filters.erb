@@ -19,7 +19,7 @@
     </div>
     <div class="users">
       <%= label_tag :workload_users, l(:workload_show_filter_user) %>
-      <%= select_tag :workload_users, get_option_tags_for_userselection(@usersAllowedToDisplay, @usersToDisplay), :name => 'workload[users][]', :multiple => true %>
+      <%= select_tag :workload_users, get_option_tags_for_userselection(@usersAllowedToDisplay, @usersToDisplay), :name => 'workload[users][]', :multiple => true, :style => 'height:300px' %>
     </div>
     <%= link_to_function l(:button_apply), 'jQuery("#filter_form").submit()', :class => 'apply icon icon-checked' %>
   </fieldset>
