@@ -54,3 +54,4 @@ ru:
   workload_settings_hours_low_min:              "... низкая:"
   workload_settings_hours_normal_min:           "... нормальная:"
   workload_settings_hours_high_min:             "... перегрузка:"
+  workload_show_filter_group: Группа
