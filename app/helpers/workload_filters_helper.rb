@@ -2,7 +2,7 @@
 module WorkloadFiltersHelper
   def get_option_tags_for_userselection(usersToShow, selectedUsers)
 
-    result = '';
+    result = ''
 
     usersToShow.each do |user|
       selected = selectedUsers.include?(user) ? 'selected="selected"' : ''
@@ -14,16 +14,17 @@ module WorkloadFiltersHelper
   end
 
 
-  def group_options()
+  def get_option_tags_for_group_selection(selected_group)
     available_groups = Group.all
-=begin
-    if timesheet.groups.first.class == Group
-      selected_groups = timesheet.groups.collect{|g| g.id}
-    else
-      selected_groups = timesheet.groups
+
+    result = ''
+
+    available_groups.each do |group|
+      selected = [selected_group].include?(group) ? 'selected="selected"' : ''
+
+      result += "<option value=\"#{h(group.id)}\" #{selected}>(#{h(group.name)})</option>"
     end
-    selected_groups = available_groups.collect{|g| g.id} if selected_groups.blank?
-=end
-    options_from_collection_for_select(available_groups, :id, :name)
+
+    return result.html_safe
   end
 end

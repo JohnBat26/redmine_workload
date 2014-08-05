@@ -39,6 +39,7 @@ class WorkLoadController < ApplicationController
     @usersAllowedToDisplay = ListUser::getUsersAllowedToDisplay()
 
     if  workloadParameters[:group] &&  !workloadParameters[:group].empty?
+      @selected_group = Group.find(workloadParameters[:group])
       userIds = Group.find(workloadParameters[:group]).users.collect { |user| user.id}
     else
       userIds = workloadParameters[:users].kind_of?(Array) ? workloadParameters[:users] : []
